@@ -42,11 +42,11 @@ def main():
     # Print Cosine and Sine values
     st.write(f"Values of Sine and Cosine after {st.session_state.step} steps:")
     if(st.session_state.step == 0):
-        st.write(f"sin({angle_deg}) = {st.session_state.y_vals}")
-        st.write(f"cos({angle_deg}) = {st.session_state.x_vals}")
+        st.write(f"sin({angle_deg}) = {st.session_state.y_vals:.5f}")
+        st.write(f"cos({angle_deg}) = {st.session_state.x_vals:.5f}")
     else:
-        st.write(f"sin({angle_deg}) = {st.session_state.y_vals*k}")
-        st.write(f"cos({angle_deg}) = {st.session_state.x_vals*k}")
+        st.write(f"sin({angle_deg}) = {(st.session_state.y_vals*k):.5f}")
+        st.write(f"cos({angle_deg}) = {(st.session_state.x_vals*k):.5f}")
 
 
     # Plot the CORDIC path
