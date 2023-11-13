@@ -58,7 +58,7 @@ def main():
     if(st.session_state.step == 0):
         ax.add_patch(FancyArrow(0, 0, st.session_state.x_vals, st.session_state.y_vals, color='red', width=0.02, label='Current Vector'))
     else:
-        ax.add_patch(FancyArrow(0, 0, k*st.session_state.x_va-ls, k*st.session_state.y_vals, color='red', width=0.02, label='Current Vector'))
+        ax.add_patch(FancyArrow(0, 0, k*st.session_state.x_vals, k*st.session_state.y_vals, color='red', width=0.02, label='Current Vector'))
     ax.add_patch(FancyArrow(0, 0, np.cos(angle), np.sin(angle), color='blue', width=0.02, label='Current Vector'))
 
     # Plot a circle of radius 1
