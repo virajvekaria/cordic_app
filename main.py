@@ -15,10 +15,16 @@ def cordic_one_iteration(x, y, angle, target, i):
     angle_new = angle+ (d*(np.arctan(2**(-i))))
     return x_new, y_new, angle_new
 
+def reset():
+    st.session_state.x_vals = 1
+    st.session_state.y_vals = 0
+    st.session_state.angles = 0
+    st.session_state.step = 0
+
 def main():
     st.title("CORDIC Rotation Visualization")
 
-    angle_deg = st.slider("Rotation Angle (degrees):", 0.00, 90.00, 60.00, step = 0.01)
+    angle_deg = st.slider("Rotation Angle (degrees):", 0.00, 90.00, 60.00,on_change=reset, step = 0.01)
     angle = angle_deg*np.pi/180
     x_init, y_init = 1, 0
     k = 0.6072529350088812561694
@@ -27,6 +33,12 @@ def main():
     st.session_state.y_vals = st.session_state.get("y_vals", float(y_init))
     st.session_state.angles = st.session_state.get("angles", 0)
     st.session_state.step = st.session_state.get("step", 0)
+
+    # if st.button("Reset"):
+    #     st.session_state.x_vals = x_init
+    #     st.session_state.y_vals = y_init
+    #     st.session_state.angles = 0
+    #     st.session_state.step = 0
 
     if "param_history" not in st.session_state:
         st.session_state.param_history = []
